@@ -1,0 +1,83 @@
+# form-1 (login form)-in button 1 click add the code
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace using_server_controles
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Enter Password !!");
+            }
+            else if (textBox2.Text == "")
+            {
+                MessageBox.Show("Enter Username !!");
+            }
+            else 
+            {
+                this.Hide();
+                Form frm2 = new Form2();
+                frm2.ShowDialog();
+            }
+           
+        }
+    }
+}
+
+
+#Right click the form add new item windowforms
+#form-2(Eligible to vote)-in button1_click add the code
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace using_server_controles
+{
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int a;
+            a = Convert.ToInt32(textBox1.Text);
+            if (a >= 18)
+            {
+                MessageBox.Show("Eligibility To Vote !!");
+            }
+            else
+            {
+                MessageBox.Show("Not Eligibility To Vote !!");
+            }
+        }
+    }
+}
