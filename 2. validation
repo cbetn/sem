@@ -1,0 +1,2 @@
+#in button submit code this
+Response.Redirect("WebForm2.aspx");
