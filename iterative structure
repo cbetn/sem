@@ -1,0 +1,91 @@
+#in puplic partial class form1 : form add this code
+public partial class Form1 : Form
+    {
+        string[] StudentNames = new string[100];
+        int[,] StudentMarks = new int[100, 3];
+        int studentcount = 0;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+#add 6 label, list_box
+#rename 5 button to (sum,avg,search,display,exit) by clicking it double time add the code to it
+
+
+#in sum code this 
+if (studentcount <= 100)
+            {
+                MessageBox.Show("student list full");
+            }
+            StudentNames[studentcount] = textBox1.Text;
+            StudentMarks[studentcount, 0] = Convert.ToInt32(textBox2.Text);
+            StudentMarks[studentcount, 1] = Convert.ToInt32(textBox3.Text);
+            StudentMarks[studentcount, 2] = Convert.ToInt32(textBox4.Text);
+            studentcount++;
+            MessageBox.Show("student added successfully");
+            ClearInputs();
+
+
+
+#in avg code this
+ if (studentcount == 0)
+            {
+                MessageBox.Show(" No students available ");
+                return;
+            }
+            double totalmarks = 0;
+            int totalsubjets = studentcount * 3;
+            for (int i = 0; i < studentcount; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    totalmarks += StudentMarks[i, j];
+                }
+            }
+            double average = totalmarks / totalsubjets;
+            MessageBox.Show($"class Average Marks: {average:F2}");
+
+
+#in search code this
+ string searchname = textBox5.Text;
+            bool found = false;
+            for (int i = 0; i < studentcount; i++)
+            {
+                if (StudentNames[i].Equals(searchname,
+                StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show($" student found:{ StudentNames[i]}marks:{StudentMarks[i,0]},{ StudentMarks[i, 1]},{ StudentMarks[i, 2]}");
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("student not found.");
+            }
+
+
+#in display code this
+listBox1.Items.Clear();
+            for (int i = 0; i < studentcount; i++)
+            {
+                listBox1.Items.Add(StudentNames[i] + "marks:" + StudentMarks[i,
+               0] + "," + StudentMarks[i, 1] + "," + StudentMarks[i, 2]);
+            }
+
+
+#in exit code this
+ Environment.Exit(0);
+
+#create a class to be implemented in sum function
+private void ClearInputs()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+        }
+
+
+#if you change the list box name change it in display coding change the name of (listBox1)
