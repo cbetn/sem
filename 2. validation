@@ -1,2 +1,3 @@
+code in we form or else you will get jquery error
 #in button submit code this
 Response.Redirect("WebForm2.aspx");
