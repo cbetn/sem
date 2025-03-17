@@ -1,0 +1,72 @@
+#in asp.net web form add new web form
+#design
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        .auto-style2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style1">
+                <tr>
+                    <td class="auto-style2" style="background-color: #FF0000; font-size: large; color: #FFFFFF;">Ad content rotator using asp.net</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2" style="font-size: large">
+                        <asp:AdRotator ID="AdRotator1" runat="server" Height="350px" AdvertisementFile="~/XMLFile1.xml" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+#right click add new xml file and write this coding
+<Advertisements>
+  <Ad>
+    <ImageUrl>img/1.jpg</ImageUrl>
+    <NavigateUrl>https://meeraacademy.com</NavigateUrl>
+    <AlternateText>Meera Academy</AlternateText>
+    <Impressions>50</Impressions>
+    <Keyword>Meera</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>img/2.jpg</ImageUrl>
+    <NavigateUrl>http://meera.com</NavigateUrl>
+    <AlternateText>Meerta Aademy</AlternateText>
+    <Impressions>100</Impressions>
+    <Keyword>Academy</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>img/3.jpg</ImageUrl>
+    <NavigateUrl>https://meeraacademy.com</NavigateUrl>
+    <AlternateText>Meerta Aademy</AlternateText>
+    <Impressions>50</Impressions>
+    <Keyword>Academy</Keyword>
+  </Ad>
+</Advertisements>
+
+
+
+
+#rightclick add new folder named "img"
+#downlode 3 images from web and save it as 1,2,3 after saving, copy it and right click on the folder that you created above and paste it
+#change the names in the image url(prefered .jpg formet)
