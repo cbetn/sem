@@ -1,0 +1,99 @@
+
+#design code
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:Label ID="lbl_name" runat="server" Text="Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txt_name" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lbl_s1" runat="server" Text="Subject 1"></asp:Label>
+&nbsp;
+            <asp:TextBox ID="txt_s1" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lbl_s2" runat="server" Text="Subject 2"></asp:Label>
+&nbsp;
+            <asp:TextBox ID="txt_s2" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lbl_s3" runat="server" Text="Subject 3"></asp:Label>
+&nbsp;
+            <asp:TextBox ID="txt_s3" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="bt_submit" runat="server" OnClick="bt_submit_Click" Text="Submit" />
+            <br />
+            <asp:Button ID="bt_view" runat="server" Text="View" />
+            <br />
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Mark %>" SelectCommand="SELECT * FROM [Sem]"></asp:SqlDataSource>
+            <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+        </div>
+    </form>
+</body>
+</html>
+
+
+#code page
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace WebApplication6
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        SqlCommand cmd;
+        SqlConnection con;
+        SqlDataReader rd;
+        SqlDataAdapter adap;
+        string query;
+        DataTable dt;
+
+        public void dbconn()
+        {
+            string conn = System.Configuration.ConfigurationManager.ConnectionStrings
+           ["Mark"].ToString();
+            con = new SqlConnection(conn);
+            con.Open();
+        }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void bt_submit_Click(object sender, EventArgs e)
+        {
+            dbconn();
+            query = "INSERT INTO Sem(name, sub1, sub2, sub3) VALUES ('" +
+            txt_name.Text + "','" + txt_s1.Text + " ','" + txt_s2.Text + "','" + txt_s3.Text + "')";
+            cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            Response.Write("<script> alert('data saved')</script>");
+        }
+
+        protected void bt_view_Click(object sender, EventArgs e)
+        {
+            dbconn();
+            query = " SELECT * FROM Sem";
+            cmd = new SqlCommand(query, con);
+            adap = new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            adap.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+        }
+    }
+}
