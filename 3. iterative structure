@@ -1,3 +1,4 @@
+#windowformapp
 #in puplic partial class form1 : form add this code
 public partial class Form1 : Form
     {
