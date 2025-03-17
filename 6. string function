@@ -50,7 +50,7 @@ Design:
                 <td class="auto-style4">:</td>
                 <td>
                     <asp:DropDownList ID="DropDownList1" runat="server" Width="183px">
-                        <asp:ListItem Text="cloun" Value="1"/>
+                        <asp:ListItem Text="clone" Value="1"/>
                         <asp:ListItem Text="contains" Value="2"/>
                         <asp:ListItem Text="to upper case" Value="3"/>
                         <asp:ListItem Text="to lower case" Value="4"/>
