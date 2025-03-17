@@ -1,3 +1,145 @@
-code in we form or else you will get jquery error
+design code
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style9 {
+            width: 514px;
+        }
+        .auto-style10 {
+            width: 322px;
+        }
+        .auto-style11 {
+            width: 517px;
+        }
+        .auto-style12 {
+            width: 173px;
+        }
+        .auto-style13 {
+            width: 485px;
+        }
+        .auto-style14 {
+            width: 485px;
+            height: 38px;
+        }
+        .auto-style15 {
+            width: 173px;
+            height: 38px;
+        }
+        .auto-style16 {
+            height: 38px;
+        }
+        .auto-style17 {
+            width: 322px;
+            height: 39px;
+        }
+        .auto-style18 {
+            width: 514px;
+            height: 39px;
+        }
+        .auto-style19 {
+            height: 39px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style10">&nbsp;</td>
+                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Registration form</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style10">
+                    <asp:Label ID="Lbl_name" runat="server" Text="Name"></asp:Label>
+                </td>
+                <td class="auto-style11">
+                    <asp:TextBox ID="Txt_name" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Txt_name" Display="Dynamic" ErrorMessage="Name is not entered" ForeColor="#990033" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style10">
+                    <asp:Label ID="Lbl_age" runat="server" Text="Age"></asp:Label>
+                </td>
+                <td class="auto-style11">
+                    <asp:TextBox ID="Txt_age" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Txt_age" Display="Dynamic" ErrorMessage="Age is not entered" ForeColor="#990033" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="Txt_age" Display="Dynamic" ErrorMessage="Age range dose not match" ForeColor="#990033" MaximumValue="95" MinimumValue="18" SetFocusOnError="True"></asp:RangeValidator>
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style10">
+                    <asp:Label ID="Lbl_mail" runat="server" Text="E-Mail"></asp:Label>
+                </td>
+                <td class="auto-style9">
+                    <asp:TextBox ID="Txt_email" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Txt_email" Display="Dynamic" ErrorMessage="Email is not entered" ForeColor="#990033" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Txt_email" Display="Dynamic" ErrorMessage="Mail does not match" ForeColor="#990033" SetFocusOnError="True" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style17">
+                    <asp:Label ID="Lbl_password" runat="server" Text="Password"></asp:Label>
+                </td>
+                <td class="auto-style18">
+                    <asp:TextBox ID="Txt_password" type="password" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Txt_password" ErrorMessage="password is not entered" ForeColor="#990033" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+                <td class="auto-style19"></td>
+            </tr>
+            <tr>
+                <td class="auto-style10">
+                    <asp:Label ID="Lbl_conform_password" runat="server" Text="Conform Password"></asp:Label>
+                </td>
+                <td class="auto-style9">
+                    <asp:TextBox ID="Txt_cfm_psw" type="password" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="Txt_cfm_psw" Display="Dynamic" ErrorMessage="Conform password is not entered" ForeColor="#990033" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
+                <td>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="Txt_password" ControlToValidate="Txt_cfm_psw" Display="Dynamic" ErrorMessage="Conform password dose not match the pasword" ForeColor="#990033" SetFocusOnError="True"></asp:CompareValidator>
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style14"></td>
+                <td class="auto-style15">
+                    <asp:Button ID="Btn_submit" runat="server" Font-Names="Times New Roman" Text="Submit" Width="138px" OnClick="Btn_submit_Click" />
+                </td>
+                <td class="auto-style16"></td>
+            </tr>
+            <tr>
+                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style12">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style13">&nbsp;</td>
+                <td class="auto-style12">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+
+
+
+
+code in web form or else you will get jquery error
 #in button submit code this
 Response.Redirect("WebForm2.aspx");
