@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
+#system.io should be mentioned
+
+
+
+namespace file_operation
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+        #code frome here
+            if (FileUpload1.HasFile)
+            {
+                string pathoffolder = Server.MapPath("~/upload images/");
+                if (!Directory.Exists(pathoffolder))
+                {
+                    Directory.CreateDirectory(pathoffolder);
+                }
+                string getfilename = Path.GetFileName(FileUpload1.FileName);
+                string savePath = Path.Combine(pathoffolder, getfilename);
+                try
+                {
+                    FileUpload1.SaveAs(savePath);
+                    Label1.Text = getfilename + " has been uploaded successfully.";
+                }
+                catch (Exception ex)
+                {
+                    Label1.Text = "Error: " + ex.Message;
+                }
+            }
+            else
+            {
+                Label1.Text = "No file selected.";
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+design
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>File uplload</title>
+</head>
+<body>
+    <center><h1>File upload</h1></center>
+    <form id="form1" runat="server">
+        <div>
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <br />
+        </div>
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="submit" />
+        <br />
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    </form>
+</body>
+</html>
