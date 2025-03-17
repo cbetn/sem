@@ -1,5 +1,5 @@
 #windowsformapp
-#create picturebox and resize the image,upload the image   create a textbox, 3 button (stop,start,exit)
+#create picturebox and resize the image,upload the image(in BackGround Image in prop.)  ,create a textbox, 3 button (stop,start,exit)
 #create 4 timer name it as timerred,timeryellow,timergreen and timer4
 namespace basic_class_control_traffic_light
 {
