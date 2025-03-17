@@ -1,0 +1,202 @@
+
+Design:
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>String operations</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 422px;
+        }
+        .auto-style2 {
+            width: 423px;
+        }
+        .auto-style3 {
+            width: 425px;
+        }
+        .auto-style4 {
+            width: 22px;
+        }
+        .auto-style5 {
+            width: 19px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>String Operators</h1></center>
+    <form id="form1" runat="server">
+        <div style="color: #808080">
+            Enter a String&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <br/>
+            <br/>
+            <asp:Button ID="btn_submit" runat="server" OnClick="btn_submit_Click" Text="submit" />
+            <br/>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <br/>
+            <br/>
+            STRING OPERATIOM</div>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style1">Enter a String</td>
+                <td class="auto-style4">:</td>
+                <td>
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">Choose the operation to be performed</td>
+                <td class="auto-style4">:</td>
+                <td>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Width="183px">
+                        <asp:ListItem Text="cloun" Value="1"/>
+                        <asp:ListItem Text="contains" Value="2"/>
+                        <asp:ListItem Text="to upper case" Value="3"/>
+                        <asp:ListItem Text="to lower case" Value="4"/>
+                        <asp:ListItem Text="trim" Value="5"/>
+                        <asp:ListItem Text="substring" Value="6"/>
+                        <asp:ListItem Text="replace" Value="7"/>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style1">Enter the string to be checked</td>
+                <td class="auto-style4">:</td>
+                <td>
+                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style2">Enter the strat index</td>
+                <td class="auto-style5">:</td>
+                <td>
+                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Enter the length to be checked</td>
+                <td class="auto-style5">:</td>
+                <td>
+                    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style2">Enter the string that wanted to be replaced</td>
+                <td class="auto-style5">:</td>
+                <td>
+                    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td class="auto-style3">Enter the replacing string</td>
+                <td class="auto-style5">:</td>
+                <td>
+                    <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
+                    <asp:Button ID="btn_apply" runat="server" Text="apply" OnClick="btn_apply_Click" />
+                </td>
+                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3">
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                </td>
+                <td class="auto-style5">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+functional code
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace string_operations
+{
+    public partial class WebForm2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+#click submit button and write this code
+        protected void btn_submit_Click(object sender, EventArgs e)
+        {
+            string s = TextBox1.Text;
+            int num = 0, cl = 0, sl = 0, sp = 0, ss = 0;
+            foreach (char c in s)
+            {
+                if (Char.IsDigit(c)) num++;
+                else if (Char.IsUpper(c)) cl++;
+                else if (Char.IsLower(c)) sl++;
+                else if (Char.IsWhiteSpace(c)) sp++;
+                else sp++;
+            }
+            Label1.Text = $"number of digits:{num}<br/>" + $"capital letters:{cl}<br/>" + $"smallletters: { sl}<br/> " + $"spaces: { sp}<br/> " + $"special symbols:{ sp++}";
+        }
+
+
+
+
+        
+#click  apply button and write this code
+        protected void btn_apply_Click(object sender, EventArgs e)
+        {
+            string s = TextBox2.Text;
+            int choice = Convert.ToInt32(DropDownList1.SelectedValue);
+            string output = "";
+            switch (choice)
+            {
+                case 1:
+                    output = (string)s.Clone();
+                    break;
+                case 2:
+                    output = s.Contains(TextBox3.Text) ? "True" : "False";
+                    break;
+                case 3:
+                    output = s.ToUpper();
+                    break;
+                case 4:
+                    output = s.ToLower();
+                    break;
+                case 5:
+                    output = s.Trim();
+                    break;
+                case 6:
+                    int start = int.Parse(TextBox4.Text);
+                    int length = int.Parse(TextBox5.Text);
+                    output = s.Substring(start, length);
+                    break;
+                case 7:
+                    output = s.Replace(TextBox6.Text, TextBox7.Text);
+                    break;
+                default:
+                    output = "Invalid choice.";
+                    break;
+            }
+            Label2.Text = "Output: " + output;
+        }
+    }
+}
