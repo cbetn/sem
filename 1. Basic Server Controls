@@ -1,5 +1,6 @@
 #windowformapp
 # form-1 (login form)-in button 1 click add the code
+#three label(heading,username,password),two textbox(username,password),button(submit)
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,7 @@ namespace using_server_controles
 
 
 #Right click the form add new item windowforms
+#2 label(heading,age),textbox(age),button(check)
 #form-2(Eligible to vote)-in button1_click add the code
 using System;
 using System.Collections.Generic;
