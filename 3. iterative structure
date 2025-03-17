@@ -1,4 +1,7 @@
 #windowformapp
+#add 6 label(heading,name,mrk1,mrk2,mrk3,std. name to display) with 5 textbox , list_box
+#rename 5 button to (sum,avg,search,display,exit) by clicking it double time add the code to it
+
 #in puplic partial class form1 : form add this code
 public partial class Form1 : Form
     {
